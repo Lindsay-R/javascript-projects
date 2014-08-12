@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rails Practice</title>
+  <link href="/assets/application.css" media="all" rel="stylesheet" />
+  <script src="/assets/application.js"></script>
+  
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="logo">
+      <a href="/">Rails Practice</a>
+    </div>
+      <div class="logout">
+        user@example.com |
+        <a href="/signout">Logout</a>
+      </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="flash_notice">
+    Task was created successfully!<br>
+  </div>
+
+  <div class="container">
+    <h1>My Lists</h1><a href="/task_lists/new">+ Add Task List</a> <br>
+
+
+  <!--route helpers, rails feature-->
+  <section class="task-list">
+
+    <!--*** working on the task_list link ***-->
+    <h1><a href="/task_lists/199">ToDo</a>
+      <a href="/task_lists/199/edit">Edit</a>
+      <a href="/task_lists/199/tasks/new">+ New Task</a>
+    </h1>
+
+      <ul>
+        <li>walk the dog | 2014-08-11 <form action="/task_lists/199/tasks/22" class="button_to" method="post"><div><input name="_method" type="hidden" value="delete" /><input type="submit" value="Delete" /></div></form></li>
+      </ul>
+
+  </section>
+
+
+  </div>
+</main>
+</body>
+</html>

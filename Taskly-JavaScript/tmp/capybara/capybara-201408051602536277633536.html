@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rails Practice</title>
+  <link href="/assets/application.css" media="all" rel="stylesheet" />
+  <script src="/assets/application.js"></script>
+  
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="logo">
+      <a href="/">Rails Practice</a>
+    </div>
+      <div class="logout">
+        user@example.com |
+        <a href="/signout">Logout</a>
+      </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="flash_notice">
+  </div>
+
+  <div class="container">
+    <h2>Edit a task list</h2>
+
+<form accept-charset="UTF-8" action="/166" class="signin-form" id="edit_task_list_166" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="patch" /></div>
+
+
+  <div>
+    <label for="task_list_name">Name</label>
+    <input id="task_list_name" name="task_list[name]" type="text" value="Lindsay has a task list" />
+  </div>
+  <div>
+    <input name="commit" type="submit" value="Update Task List" />
+  </div>
+
+</form>
+  </div>
+</main>
+</body>
+</html>
