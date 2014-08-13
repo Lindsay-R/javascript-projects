@@ -5,10 +5,20 @@
 $(document).ready(function() {
 
 
-  $('h3').click (function() {
-    $('.accord_body').toggleClass('hidden');
-    $('.triangle_img').find('img').toggleClass('rotate');
+//  $('h3').click (function() {
+//    $('.accord_body').toggleClass('hidden');  .toggle();
+//    $('.triangle_img').find('img').toggleClass('rotate');
+//  });
+
+
+
+
+  $('h3').on('click', function() {
+    $(this).parent('.task-list').find('.accord_body').toggleClass('hidden');
+    $(this).find('img').toggleClass('rotate');
   });
+
+
 
 
 
