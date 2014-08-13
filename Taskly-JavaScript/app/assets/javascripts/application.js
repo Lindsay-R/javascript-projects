@@ -11,12 +11,37 @@ $(document).ready(function() {
 //  });
 
 
-
+//  .toggleClass('hidden')
 
   $('h3').on('click', function() {
-    $(this).parent('.task-list').find('.accord_body').toggleClass('hidden');
+    $(this).parent('.task-list').find('.accord_body').animate({
+      height: ["toggle", "swing"],
+      opacity: "toggle"
+    }, 1500, function() {
+      // Animation complete.
+    });
     $(this).find('img').toggleClass('rotate');
+
   });
+
+
+
+
+
+  $('.form-field').on('keyup', function(){
+    var string = $(this).val().length;
+
+    console.log(string)
+
+    if ($(this).val().length > 0) {
+      $('.submit-button').removeAttr('disabled');
+    }
+    else {
+      $('.submit-button').attr('disabled', 'true');
+    }
+  });
+
+
 
 
 

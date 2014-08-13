@@ -11,10 +11,10 @@
 
   <div>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-field" %>
   </div>
   <div>
-    <%= f.submit "Create Task List"  %>
+    <%= f.submit "Create Task List",  class: "submit-button", disabled: "disabled" %>
   </div>
 
 <% end %>

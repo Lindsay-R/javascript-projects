@@ -12,16 +12,16 @@
 
   <div>
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description,  class: "form-field" %>
   </div>
 
   <div>
     <%= f.label :date %>
-    <%= f.date_select :date %>
+    <%= f.date_select :date,  class: "form-field"  %>
   </div>
 
   <div>
-    <%= f.submit "Create Task"  %>
+    <%= f.submit "Create Task",  class: "submit-button"   %>
   </div>
 
 <% end %>

@@ -139,3 +139,6 @@ main {
   transform: rotate(-90deg);
 }
 
+.submit-button[disabled] {
+  opacity: 0.3;
+}
