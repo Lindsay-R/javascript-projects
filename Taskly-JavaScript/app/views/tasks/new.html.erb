@@ -17,11 +17,14 @@
 
   <div>
     <%= f.label :date %>
-    <%= f.date_select :date,  class: "form-field"  %>
+    <!--f.date_select :date,  class: "form-field"-->
+    <%= f.text_field :date,  class: "form-field", id: "datepicker" %>
+
+    <!--<p>Date: <input type="text" id="datepicker"></p>-->
   </div>
 
   <div>
-    <%= f.submit "Create Task",  class: "submit-button"   %>
+    <%= f.submit "Create Task",  class: "submit-button", disabled: "disabled"   %>
   </div>
 
 <% end %>

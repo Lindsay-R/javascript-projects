@@ -1,1 +1,29 @@
-<h2>Your list  <%= @task_list.name %></h2>
+<h2>Your list -- <%= @task_list.name %> -- </h2>
+
+
+
+
+<h2>Airline</h2>
+
+  <p>$399.99 per ticket</p>
+
+    <div class="flight-container">
+    <p>Take a flight somewhere</p>
+    <button>Flight Details</button>
+    <ul class="ticket hidden">
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+      <li>item 4</li>
+      <li>item 5</li>
+    </ul>
+    </div>
+<div class="price-container" data-price='399.99'>
+<p>
+  Tickets:
+  <input type='number' class="quantity" value="1" />
+</p>
+</div>
+<p>
+  Total Price: $<span id="total">399.99</span>
+</p>

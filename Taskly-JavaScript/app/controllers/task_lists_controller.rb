@@ -5,8 +5,8 @@ class TaskListsController < ApplicationController
   end
 
   def show
-    # @task_list = TaskList.find(params:id)
-    @task_list = TaskList
+
+    @task_list = TaskList.find(params[:id])
   end
 
   def new

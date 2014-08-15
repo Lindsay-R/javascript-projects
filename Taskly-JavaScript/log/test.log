@@ -15499,3 +15499,253 @@ Processing by TaskListsController#index as HTML
   Rendered task_lists/index.html.erb within layouts/application (1.9ms)
 Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.8ms)
   [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (5.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."name") = LOWER('Some User') LIMIT 1[0m
+  [1m[35mSQL (3.3ms)[0m  INSERT INTO "users" ("email", "name", "password_digest") VALUES ($1, $2, $3) RETURNING "id"  [["email", "user@example.com"], ["name", "Some User"], ["password_digest", "$2a$04$YxhtUeLUct1la6sCkPAxueNuv1I0jgZSY0ftU7wfKieVWcNWfrKxS"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://www.example.com/signin
+Filter chain halted as :ensure_current_user rendered or redirected
+Completed 302 Found in 22ms (ActiveRecord: 0.5ms)
+Started GET "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (25.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 123ms (Views: 122.1ms | ActiveRecord: 0.4ms)
+Started POST "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = '' LIMIT 1
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 1.2ms)
+Started POST "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'user@example.com' LIMIT 1
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 172 LIMIT 1[0m
+  [1m[35mTaskList Load (1.8ms)[0m  SELECT "task_lists".* FROM "task_lists"   ORDER BY "task_lists"."name" ASC
+  Rendered task_lists/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 17ms (Views: 5.5ms | ActiveRecord: 2.4ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."name") = LOWER('Some User') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "name", "password_digest") VALUES ($1, $2, $3) RETURNING "id"  [["email", "user@example.com"], ["name", "Some User"], ["password_digest", "$2a$04$/ZYwvgXMUBiuUsLQm9w7VuQzfMBb.mm48EuhsbR1XWs23hEJeDnsG"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "task_lists" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Work List"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "task_lists" ("name") VALUES ($1) RETURNING "id"  [["name", "Household Chores"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.6ms)
+Started POST "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = '' LIMIT 1[0m
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.8ms)
+Started POST "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'user@example.com' LIMIT 1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 173 LIMIT 1
+  [1m[36mTaskList Load (0.3ms)[0m  [1mSELECT "task_lists".* FROM "task_lists"   ORDER BY "task_lists"."name" ASC[0m
+  [1m[35mTask Load (1.5ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."task_list_id" = $1  [["task_list_id", 250]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."task_list_id" = $1[0m  [["task_list_id", 249]]
+  Rendered task_lists/index.html.erb within layouts/application (34.4ms)
+Completed 200 OK in 37ms (Views: 32.2ms | ActiveRecord: 3.9ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+Started GET "/about" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by AboutController#about as HTML
+  Rendered about/about.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."name") = LOWER('Some User') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "name", "password_digest") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "user@example.com"], ["name", "Some User"], ["password_digest", "$2a$04$T0S1khmK0xoyxmB7ULhxPOeytJLL3JaIvjkZhudljQ/.mwXKdWjrW"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "task_lists" ("name") VALUES ($1) RETURNING "id"  [["name", "Work List"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "task_lists" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Household Chores"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+Started POST "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'user@example.com' LIMIT 1
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 174 LIMIT 1[0m
+  [1m[35mTaskList Load (0.4ms)[0m  SELECT "task_lists".* FROM "task_lists"   ORDER BY "task_lists"."name" ASC
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."task_list_id" = $1[0m  [["task_list_id", 252]]
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."task_list_id" = $1  [["task_list_id", 251]]
+  Rendered task_lists/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 1.6ms)
+Started GET "/task_lists/new" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 174 LIMIT 1[0m
+  Rendered task_lists/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."name") = LOWER('Some User') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "name", "password_digest") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "user@example.com"], ["name", "Some User"], ["password_digest", "$2a$04$MRd7rHhkwjbmGFgwPgP2vOjI7sG/P8NF7edmbHkr/YtziRWxS35ny"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "task_lists" ("name") VALUES ($1) RETURNING "id"  [["name", "Work List"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "task_lists" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Household Chores"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+Started POST "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'user@example.com' LIMIT 1
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 175 LIMIT 1[0m
+  [1m[35mTaskList Load (0.3ms)[0m  SELECT "task_lists".* FROM "task_lists"   ORDER BY "task_lists"."name" ASC
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."task_list_id" = $1[0m  [["task_list_id", 254]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT "tasks".* FROM "tasks"  WHERE "tasks"."task_list_id" = $1  [["task_list_id", 253]]
+  Rendered task_lists/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 1.1ms)
+Started GET "/task_lists/new" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 175 LIMIT 1[0m
+  Rendered task_lists/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."name") = LOWER('Some User') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "name", "password_digest") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "user@example.com"], ["name", "Some User"], ["password_digest", "$2a$04$V2AKk72fd.Qb0QzQnnqTpuMOHYUwRvSX.McAkEBymJRqvRKKJO93K"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+Started POST "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'user@example.com' LIMIT 1
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 176 LIMIT 1[0m
+  [1m[35mTaskList Load (0.2ms)[0m  SELECT "task_lists".* FROM "task_lists"   ORDER BY "task_lists"."name" ASC
+  Rendered task_lists/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+Started GET "/task_lists/new" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 176 LIMIT 1[0m
+  Rendered task_lists/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."name") = LOWER('Some User') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "name", "password_digest") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "user@example.com"], ["name", "Some User"], ["password_digest", "$2a$04$.qQ4KVxFmuQxcIjbzSQQReo5ChiVAtumXrcZVk0eSUaHbfrlfP7Oq"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+Started POST "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'user@example.com' LIMIT 1
+Redirected to http://www.example.com/
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 177 LIMIT 1[0m
+  [1m[35mTaskList Load (0.2ms)[0m  SELECT "task_lists".* FROM "task_lists"   ORDER BY "task_lists"."name" ASC
+  Rendered task_lists/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+Started GET "/task_lists/new" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 177 LIMIT 1[0m
+  Rendered task_lists/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."name") = LOWER('Some User') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "name", "password_digest") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "user@example.com"], ["name", "Some User"], ["password_digest", "$2a$04$lsoFEG.bymCDu9p9ZYN65uV6E7tljpSjEcL7EpoLgJIM6aM/r9MF."]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (8.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.3ms)
+Started POST "/signin" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"user@example.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'user@example.com' LIMIT 1
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 178 LIMIT 1[0m
+  [1m[35mTaskList Load (0.2ms)[0m  SELECT "task_lists".* FROM "task_lists"   ORDER BY "task_lists"."name" ASC
+  Rendered task_lists/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+Started GET "/task_lists/new" for 127.0.0.1 at 2014-08-14 07:54:06 -0600
+Processing by TaskListsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 178 LIMIT 1[0m
+  Rendered task_lists/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK

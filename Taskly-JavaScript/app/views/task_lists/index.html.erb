@@ -14,7 +14,7 @@
     </h3>
 
 
-    <div class="accord_body">
+    <div class="accord_body hidden">
     <% task_list.tasks.each do |task| %>
       <p>
         <%= task.description %> | <%= task.date %> <%= button_to('Delete', [task_list, task], method: :delete) %>
